@@ -1,0 +1,15 @@
+Pods/
+Podfile.lock
+*.xcworkspace/
+lolbox.xcodeproj/xcuserdata/*.xcuserdatad/
+### Objective-C ###
+# OS X
+.DS_Store
+
+# svn
+.svn/
+
+# vim
+*.swp
+*.swo
+*~
