@@ -7,6 +7,8 @@
 //
 
 #import "GTRecorder.h"
+#import "GTConstants.h"
+#import <UIKit/UIKit.h>
 NSString * const GTRecorderDoneNotification = @"GTRecorderDoneNotification";
 NSString * const GTRecorderDoneNotificationUserInfoKey = @"GTRecorderDoneNotificationUserInfoKey";
 

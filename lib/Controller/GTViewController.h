@@ -10,16 +10,12 @@
 #import "UIColor+Text.h"
 #import "GTConstants.h"
 #import "GTMacros.h"
-#import "GTAppDelegate.h"
 
-#import "UIImageView+AFNetworking.h"
 #import "UIImage+load.h"
 #import "NSString+timestamp.h"
 #import "GTMaskView.h"
-#import "GTCollectionMenuView.h"
 #import "FMDB.h"
 #import "NSFileManager+AppRef.h"
-#import "GTDBManager.h"
 #import "GTLoadingView.h"
 
 typedef enum : NSUInteger {

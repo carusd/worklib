@@ -29,17 +29,14 @@
 @interface GTPagingTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
-@property (nonatomic, strong) EGORefreshTableHeaderView *refreshHeaderView;
 @property (nonatomic, strong) GTNextPageIndicatorView *nextPageIndicatorView;
 
-@property (nonatomic, strong) PullStringToRefresh *refresh;
 @property (nonatomic, strong) NSLayoutConstraint *top4Refresh;
 
 @end
 
 @implementation GTPagingTableViewController
 @synthesize tableView = _tableView;
-@synthesize refresh = _refresh;
 @synthesize dataArray = _dataArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -79,22 +76,6 @@
     if (GTIOSVersion >= 7) {
         self.tableView.separatorInset = UIEdgeInsetsZero;
     }
-    
-//    self.refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, GTDeviceWidth, self.tableView.bounds.size.height)];
-//    [self.tableView addSubview:self.refreshHeaderView];
-//    self.refreshHeaderView.delegate = self;
-    
-    self.refresh = [[PullStringToRefresh alloc] init];
-    self.refresh.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.refresh addTarget:self action:@selector(reload) forControlEvents:UIControlEventValueChanged];
-    self.refresh.hidden = YES;
-    
-    [self.view addSubview:self.refresh];
-    NSDictionary *refreshViews = NSDictionaryOfVariableBindings(_refresh);
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_refresh]|" options:0 metrics:nil views:refreshViews]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_refresh(50)]" options:0 metrics:nil views:refreshViews]];
-    self.top4Refresh = [NSLayoutConstraint constraintWithItem:self.refresh attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-    [self.view addConstraint:self.top4Refresh];
     
     
     [self.view addSubview:self.tableView];
@@ -183,7 +164,6 @@
     }
     
     self.isLoading = NO;
-    [self.refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
     [self hide];
     
 }
@@ -210,24 +190,6 @@
 
 
 #pragma mark scroll view delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-	
-	[self.refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
-    [self.refresh realTimeContentOffset:scrollView.contentOffset];
-    
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-	
-	[self.refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
-	
-    NSLog(@"pull state %ld", self.refresh.pullState);
-    if (PullStringToRefreshStateReadyToLoad == self.refresh.pullState) {
-        [self.refresh startToLoad];
-        
-        scrollView.contentInset = UIEdgeInsetsMake(PullValve, 0, 0, 0);
-    }
-}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
@@ -248,29 +210,9 @@
 - (void)hide {
     [UIView animateWithDuration:.2 animations:^{
         
-        [self.refresh stopLoading];
         self.tableView.contentInset = UIEdgeInsetsZero;
     }];
     
 }
 
-#pragma mark -
-#pragma mark EGORefreshTableHeaderDelegate Methods
-
-- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
-	
-    [self reloadData];
-}
-
-- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
-	
-	return self.isLoading;
-	
-}
-
-- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
-	
-	return [NSDate date];
-	
-}
 @end

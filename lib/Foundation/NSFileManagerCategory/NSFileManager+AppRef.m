@@ -7,6 +7,7 @@
 //
 
 #import "NSFileManager+AppRef.h"
+#import "GTConstants.h"
 
 @implementation NSFileManager (AppRef)
 

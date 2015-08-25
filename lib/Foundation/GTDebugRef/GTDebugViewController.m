@@ -7,7 +7,6 @@
 //
 
 #import "GTDebugViewController.h"
-#import "UMSocial.h"
 
 @interface GTDebugViewController ()
 
@@ -59,18 +58,10 @@
 }
 
 - (void)testing {
-    BOOL isOauth = [UMSocialAccountManager isOauthAndTokenNotExpired:UMShareToSina];
-    NSLog(@"is oauth %d", isOauth);
-    NSDictionary *a = [UMSocialAccountManager socialAccountDictionary];
-    NSLog(@"aaaaaaaa  %@", a);
-    
-    
 }
 
 - (UIView *)subviewToMaskView:(GTMaskView *)maskView {
-    GTCollectionMenuView *menuView = [[GTCollectionMenuView alloc] init];
-    [menuView reloadData];
-    return menuView;
+    return [UIView new];
 }
 
 - (void)didTapMaskView:(GTMaskView *)maskView {
@@ -85,37 +76,7 @@
 }
 
 - (void)testMainQueue {
-    [GTDBManager executeUpdate:@"create table if not exists testing (id integer primary key autoincrement, z text);"];
-    
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('111')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('222')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('333')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('444')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('555')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('666')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('777')"];
-    
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('aaa')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('bbb')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('ccc')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('ddd')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('eee')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('fff')"];
-    [GTDBManager executeUpdate:@"insert into testing (z) values ('ggg')"];
-    
-    NSArray *firstFectching = [GTDBManager listForQuerySql:@"select * from testing"];
-    NSLog(@"firstFectching  %@", firstFectching);
-    
-    NSDictionary *secondFetching = [GTDBManager objectForQuerySql:@"select * from testing where z = 'aaa'"];
-    NSLog(@"secondFetching  %@", secondFetching);
-    
-    NSArray *thirdFetching = [GTDBManager listForQuerySql:@"select * from testing"];
-    NSLog(@"thirdFetching %@", thirdFetching);
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        NSArray *zeroFetching = [GTDBManager listForQuerySql:@"select * from testing"];
-        NSLog(@"zeroFetching  %@", zeroFetching);
-    });
+
 }
 
 - (void)testDispatchSource {

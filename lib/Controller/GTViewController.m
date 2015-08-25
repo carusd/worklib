@@ -7,7 +7,6 @@
 //
 
 #import "GTViewController.h"
-#import "GTCollectionMenuView.h"
 #import "GTDebugViewController.h"
 #import "GTConsoleViewController.h"
 
@@ -40,19 +39,6 @@
     NSLog(@"vvvvvvvvvvvvv  %@", NSStringFromClass([self class]));
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    if (self.isRootViewController) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:[GTViewController delegate] action:@selector(openMenu) forControlEvents:UIControlEventTouchUpInside];
-        [button setImage:[UIImage imageWithKey:@"icon_menu.png"] forState:UIControlStateNormal];
-        [self setLeftBarButton:button];
-        
-        UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:[GTViewController delegate] action:@selector(openMenu)];
-        swipe.direction = UISwipeGestureRecognizerDirectionRight;
-        [self.view addGestureRecognizer:swipe];
-        
-        swipe.delegate = self;
-    }
     
     
 #if GTDebug
@@ -292,9 +278,6 @@
     return [UIApplication sharedApplication].windows[0];
 }
 
-+ (GTAppDelegate *)delegate {
-    return (GTAppDelegate *)[UIApplication sharedApplication].delegate;
-}
 
 #pragma mark rotation
 //ios6
