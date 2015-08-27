@@ -8,24 +8,6 @@
 
 #import "GTPagingTableViewController.h"
 
-
-@interface GTTableView : UITableView
-
-
-@end
-
-@implementation GTTableView
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-}
-
-- (void)layoutSublayersOfLayer:(CALayer *)layer {
-    [super layoutSublayersOfLayer:layer];
-}
-
-@end
-
 @interface GTPagingTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -116,7 +98,6 @@
 }
 
 #pragma mark load data
-
 - (void)loadDataWithPage:(NSInteger)index {
     self.isLoading = YES;
 }

@@ -8,7 +8,7 @@
 
 #import "GTViewController.h"
 #import "GTNextPageIndicatorView.h"
-
+#import "GTPullToRefreshView.h"
 
 
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6BFE36BD1B8CA5620052C7F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE36BC1B8CA5620052C7F7 /* main.m */; };
 		6BFE36C01B8CA5620052C7F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE36BF1B8CA5620052C7F7 /* AppDelegate.m */; };
-		6BFE36C31B8CA5630052C7F7 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE36C21B8CA5630052C7F7 /* FirstViewController.m */; };
 		6BFE36C91B8CA5630052C7F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BFE36C71B8CA5630052C7F7 /* Main.storyboard */; };
 		6BFE36CB1B8CA5630052C7F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BFE36CA1B8CA5630052C7F7 /* Images.xcassets */; };
 		6BFE36CE1B8CA5630052C7F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BFE36CC1B8CA5630052C7F7 /* LaunchScreen.xib */; };
@@ -44,6 +43,8 @@
 		6BFE37D01B8CB5B90052C7F7 /* GTNextPageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE37AC1B8CB5B90052C7F7 /* GTNextPageIndicatorView.m */; };
 		6BFE37D11B8CB5B90052C7F7 /* GTPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE37AF1B8CB5B90052C7F7 /* GTPageView.m */; };
 		6BFE37D21B8CB5B90052C7F7 /* GTPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE37B21B8CB5B90052C7F7 /* GTPromptView.m */; };
+		6BFE37D51B8DFFCF0052C7F7 /* GTPagingTableViewShowCaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE37D41B8DFFCF0052C7F7 /* GTPagingTableViewShowCaseViewController.m */; };
+		6BFE37D91B8E01110052C7F7 /* GTPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE37D81B8E01110052C7F7 /* GTPullToRefreshView.m */; };
 		83E2B16B6E59A7649C531B00 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 970D678335CB24B551CC1318 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +64,6 @@
 		6BFE36BC1B8CA5620052C7F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6BFE36BE1B8CA5620052C7F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6BFE36BF1B8CA5620052C7F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6BFE36C11B8CA5630052C7F7 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		6BFE36C21B8CA5630052C7F7 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		6BFE36C81B8CA5630052C7F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6BFE36CA1B8CA5630052C7F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6BFE36CD1B8CA5630052C7F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -135,6 +134,10 @@
 		6BFE37AF1B8CB5B90052C7F7 /* GTPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPageView.m; sourceTree = "<group>"; };
 		6BFE37B11B8CB5B90052C7F7 /* GTPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPromptView.h; sourceTree = "<group>"; };
 		6BFE37B21B8CB5B90052C7F7 /* GTPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPromptView.m; sourceTree = "<group>"; };
+		6BFE37D31B8DFFCF0052C7F7 /* GTPagingTableViewShowCaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPagingTableViewShowCaseViewController.h; sourceTree = "<group>"; };
+		6BFE37D41B8DFFCF0052C7F7 /* GTPagingTableViewShowCaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPagingTableViewShowCaseViewController.m; sourceTree = "<group>"; };
+		6BFE37D71B8E01110052C7F7 /* GTPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPullToRefreshView.h; sourceTree = "<group>"; };
+		6BFE37D81B8E01110052C7F7 /* GTPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPullToRefreshView.m; sourceTree = "<group>"; };
 		7BB954E2A25C536CDEB38FC4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		970D678335CB24B551CC1318 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49F5D9BAD17BA92918DE141 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,9 +196,9 @@
 				6BFE375B1B8CB5B90052C7F7 /* lib */,
 				6BFE36BE1B8CA5620052C7F7 /* AppDelegate.h */,
 				6BFE36BF1B8CA5620052C7F7 /* AppDelegate.m */,
-				6BFE36C11B8CA5630052C7F7 /* FirstViewController.h */,
-				6BFE36C21B8CA5630052C7F7 /* FirstViewController.m */,
 				6BFE36C71B8CA5630052C7F7 /* Main.storyboard */,
+				6BFE37D31B8DFFCF0052C7F7 /* GTPagingTableViewShowCaseViewController.h */,
+				6BFE37D41B8DFFCF0052C7F7 /* GTPagingTableViewShowCaseViewController.m */,
 				6BFE36CA1B8CA5630052C7F7 /* Images.xcassets */,
 				6BFE36CC1B8CA5630052C7F7 /* LaunchScreen.xib */,
 				6BFE36BA1B8CA5620052C7F7 /* Supporting Files */,
@@ -388,6 +391,7 @@
 		6BFE37A01B8CB5B90052C7F7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6BFE37D61B8E00F80052C7F7 /* GTPullToRefreshView */,
 				6BFE37A11B8CB5B90052C7F7 /* GTColumnView */,
 				6BFE37A41B8CB5B90052C7F7 /* GTLoadingView */,
 				6BFE37A71B8CB5B90052C7F7 /* GTMaskView */,
@@ -450,6 +454,15 @@
 				6BFE37B21B8CB5B90052C7F7 /* GTPromptView.m */,
 			);
 			path = GTPromptView;
+			sourceTree = "<group>";
+		};
+		6BFE37D61B8E00F80052C7F7 /* GTPullToRefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				6BFE37D71B8E01110052C7F7 /* GTPullToRefreshView.h */,
+				6BFE37D81B8E01110052C7F7 /* GTPullToRefreshView.m */,
+			);
+			path = GTPullToRefreshView;
 			sourceTree = "<group>";
 		};
 		719DCCD197A79B549CA8C70E /* Pods */ = {
@@ -611,12 +624,13 @@
 				6BFE37B31B8CB5B90052C7F7 /* GTCitysTableViewController.m in Sources */,
 				6BFE37C01B8CB5B90052C7F7 /* NSDate+timestamp.m in Sources */,
 				6BFE37BD1B8CB5B90052C7F7 /* GTImageView.m in Sources */,
-				6BFE36C31B8CA5630052C7F7 /* FirstViewController.m in Sources */,
 				6BFE37B71B8CB5B90052C7F7 /* GTScrollViewController.m in Sources */,
 				6BFE37D21B8CB5B90052C7F7 /* GTPromptView.m in Sources */,
 				6BFE37BE1B8CB5B90052C7F7 /* GTRecorder.m in Sources */,
 				6BFE37CD1B8CB5B90052C7F7 /* GTColumnView.m in Sources */,
+				6BFE37D51B8DFFCF0052C7F7 /* GTPagingTableViewShowCaseViewController.m in Sources */,
 				6BFE36BD1B8CA5620052C7F7 /* main.m in Sources */,
+				6BFE37D91B8E01110052C7F7 /* GTPullToRefreshView.m in Sources */,
 				6BFE37C81B8CB5B90052C7F7 /* UIImage+crop.m in Sources */,
 				6BFE37B91B8CB5B90052C7F7 /* GTViewController.m in Sources */,
 				6BFE37BF1B8CB5B90052C7F7 /* NSDate+format.m in Sources */,
