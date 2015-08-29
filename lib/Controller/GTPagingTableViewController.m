@@ -45,11 +45,11 @@
 {
     [super viewDidLoad];
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.tableView.backgroundColor = GTColor(105, 92, 82, 1);
+//    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+//    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
+//    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.tableView.backgroundColor = GTColor(105, 92, 82, 1);
     
     self.nextPageIndicatorView = [[GTNextPageIndicatorView alloc] init];
     
