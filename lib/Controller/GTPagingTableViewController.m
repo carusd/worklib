@@ -18,8 +18,6 @@
 @end
 
 @implementation GTPagingTableViewController
-@synthesize tableView = _tableView;
-@synthesize dataArray = _dataArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,7 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     
+    
 //    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
 //    self.tableView.delegate = self;
 //    self.tableView.dataSource = self;

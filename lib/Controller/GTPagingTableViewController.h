@@ -12,10 +12,9 @@
 
 
 
-@interface GTPagingTableViewController : GTViewController <UITableViewDataSource, UITableViewDelegate> {
-    UITableView *_tableView;
-    NSMutableArray *_dataArray;
-}
+@interface GTPagingTableViewController : GTViewController <UITableViewDataSource, UITableViewDelegate>
+
+
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic) NSInteger pageNo;
 @property (nonatomic) NSInteger total;
