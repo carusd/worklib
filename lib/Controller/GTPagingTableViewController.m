@@ -43,12 +43,6 @@
 {
     [super viewDidLoad];
     
-//    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
-//    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.tableView.backgroundColor = GTColor(105, 92, 82, 1);
-    
     self.nextPageIndicatorView = [[GTNextPageIndicatorView alloc] init];
     
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -58,21 +52,6 @@
     }
     
     
-    [self.view addSubview:self.tableView];
-    
-    NSMutableArray *constraints = [NSMutableArray array];
-    NSDictionary *views = NSDictionaryOfVariableBindings(_tableView);
-    
-    NSArray *horizontal = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_tableView]|" options:0 metrics:nil views:views];
-    NSArray *vertical = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_tableView]|" options:0 metrics:nil views:views];
-    
-    [self.view addConstraints:horizontal];
-    [self.view addConstraints:vertical];
-    
-    [constraints addObjectsFromArray:horizontal];
-    [constraints addObjectsFromArray:vertical];
-    
-    self.constraints4TableView = constraints;
 }
 
 - (BOOL)hasNextPage {
