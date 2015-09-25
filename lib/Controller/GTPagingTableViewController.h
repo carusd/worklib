@@ -20,7 +20,7 @@
 @property (nonatomic) NSInteger total;
 @property (nonatomic) NSInteger pageSize;
 @property (nonatomic) BOOL isLoading;
-@property (nonatomic, readonly) NSMutableArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) NSDictionary *datas;
 @property (nonatomic) GTPagingDataSourceType pagingDataSourceType;
 
