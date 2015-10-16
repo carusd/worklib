@@ -161,7 +161,7 @@
 }
 
 #pragma mark refresh
-- (void)reload {
+- (void)refresh {
     [self reloadData];
 }
 

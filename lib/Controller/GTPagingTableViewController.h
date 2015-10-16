@@ -31,6 +31,7 @@
 - (BOOL)hasNextPage;
 - (void)loadDataWithPage:(NSInteger)index;
 - (void)handleLoadedData:(NSDictionary *)data;
+- (void)refresh;
 
 - (UIView *)customTableFooterView;
 - (GTNextPageIndicatorView *)nextPageIndicatorView;
