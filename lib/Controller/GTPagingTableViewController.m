@@ -10,7 +10,7 @@
 
 @interface GTPagingTableViewController ()
 
-@property (nonatomic, strong) NSMutableArray *dataArray;
+//@property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) GTNextPageIndicatorView *nextPageIndicatorView;
 
 @property (nonatomic, strong) NSLayoutConstraint *top4Refresh;
@@ -161,7 +161,7 @@
 }
 
 #pragma mark refresh
-- (void)reload {
+- (void)refresh {
     [self reloadData];
 }
 
