@@ -41,15 +41,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-#if GTDebug
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(openDebugViewController)];
-    swipe.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.view addGestureRecognizer:swipe];
+    self.openDebugGestureReg = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(openDebugViewController)];
+    self.openDebugGestureReg.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:self.openDebugGestureReg];
     
-    UISwipeGestureRecognizer *consoleSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(openConsoleController)];
-    consoleSwipe.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:consoleSwipe];
-#endif
+    self.openConsoleGestureReg = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(openConsoleController)];
+    self.openConsoleGestureReg.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:self.openConsoleGestureReg];
+    
     
     self.loadingView = [[GTLoadingView alloc] init];
     self.loadingView.center = CGPointMake(GTView_W(self.view) / 2, GTAppContentHeight() / 2);
