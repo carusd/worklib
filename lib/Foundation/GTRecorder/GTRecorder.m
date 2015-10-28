@@ -7,12 +7,12 @@
 //
 
 #import "GTRecorder.h"
-#import "GTConstants.h"
-#import <UIKit/UIKit.h>
 NSString * const GTRecorderDoneNotification = @"GTRecorderDoneNotification";
 NSString * const GTRecorderDoneNotificationUserInfoKey = @"GTRecorderDoneNotificationUserInfoKey";
 
 @interface GTRecorder ()<AVAudioRecorderDelegate>
+
+@property (nonatomic, strong) NSURL *audioURL;
 
 @end
 
@@ -73,6 +73,10 @@ NSString * const GTRecorderDoneNotificationUserInfoKey = @"GTRecorderDoneNotific
     _audioRecorder = [[AVAudioRecorder alloc] initWithURL:[NSURL fileURLWithPath:filepath] settings:recordSetting error:&e];
     _audioRecorder.delegate = self;
     [_audioRecorder record];
+}
+
+- (NSURL *)audioURL {
+    return _audioRecorder.url;
 }
 
 - (void)stopRecording {
