@@ -7,6 +7,8 @@
 //
 
 #import "GTRecorder.h"
+#import <UIKit/UIKit.h>
+
 NSString * const GTRecorderDoneNotification = @"GTRecorderDoneNotification";
 NSString * const GTRecorderDoneNotificationUserInfoKey = @"GTRecorderDoneNotificationUserInfoKey";
 
@@ -53,7 +55,7 @@ NSString * const GTRecorderDoneNotificationUserInfoKey = @"GTRecorderDoneNotific
 
 - (void)startRecording {
     NSString *filepath = nil;
-    if (GTIOSVersion >= 8) {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8) {
         filepath = [NSString stringWithFormat:@"%@/%f.aac", self.audiosPath, CFAbsoluteTimeGetCurrent()];
     } else {
         filepath = [NSString stringWithFormat:@"%@/%f.m4a", self.audiosPath, CFAbsoluteTimeGetCurrent()];
