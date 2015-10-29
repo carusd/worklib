@@ -36,6 +36,10 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.translucent = NO;
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
     NSLog(@"vvvvvvvvvvvvv  %@", NSStringFromClass([self class]));
     
     self.view.backgroundColor = [UIColor whiteColor];
