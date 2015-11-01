@@ -27,6 +27,8 @@ typedef void(^GTRecordFailure)(void);
 - (void)pauseRecording;
 - (BOOL)recording;
 
+- (NSURL *)audioURL;
+
 @property (nonatomic, copy) GTRecordSuccess recordSuccess;
 @property (nonatomic, copy) GTRecordFailure failure;
 

@@ -41,6 +41,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong, setter = setBarTitleView:) UIView *barTitleView;
 @property (nonatomic, readonly) UIView *navBar;
 
+
+@property (nonatomic, strong) UISwipeGestureRecognizer *openConsoleGestureReg;
+@property (nonatomic, strong) UISwipeGestureRecognizer *openDebugGestureReg;
+
 @property (nonatomic, strong) GTMaskView *maskView;
 
 - (id)initWithModelId:(NSInteger)modelId ext:(NSDictionary *)ext;

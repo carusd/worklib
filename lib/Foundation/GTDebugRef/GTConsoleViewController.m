@@ -28,7 +28,7 @@ NSMutableString *logInfo = nil;
     self.view.backgroundColor = [UIColor blackColor];
     
     self.textView = [[UITextView alloc] init];
-    self.textView.frame = CGRectMake(0, 20, GTDeviceWidth, GTValue(460, 548));
+    self.textView.frame = CGRectMake(0, 20, GTDeviceWidth, GTDeviceHeight);
     self.textView.backgroundColor = [UIColor blackColor];
     self.textView.textColor = [UIColor greenColor];
     self.textView.editable = NO;
