@@ -77,6 +77,10 @@
     [self loadDataWithPage:1];
 }
 
+- (void)handleLoadedError:(NSError *)e {
+    
+}
+
 - (void)handleLoadedData:(NSDictionary *)dic {
     [self handleLoadedData:dic dataSourceType:GTPagingDataSourceTypeNetwork];
 }
