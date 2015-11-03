@@ -14,7 +14,6 @@
 #import "UIImage+load.h"
 #import "NSString+timestamp.h"
 #import "GTMaskView.h"
-#import "FMDB.h"
 #import "NSFileManager+AppRef.h"
 #import "GTLoadingView.h"
 
