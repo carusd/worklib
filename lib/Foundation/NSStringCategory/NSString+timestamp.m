@@ -22,7 +22,8 @@
     NSTimeInterval dateDif = [now timeIntervalSinceDate:date];
     if (dateDif < 60)
     {
-        return [NSString stringWithFormat:@"%d秒前", (int)fmaxf(dateDif, 0)];
+//        return [NSString stringWithFormat:@"%d秒前", (int)fmaxf(dateDif, 0)];
+        return @"刚刚";
     }
     else if (dateDif < 900) {
         int minute = dateDif / 60;
