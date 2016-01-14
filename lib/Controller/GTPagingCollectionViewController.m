@@ -8,6 +8,51 @@
 
 #import "GTPagingCollectionViewController.h"
 
+@interface GTNextPageCollectionReusableView : UICollectionReusableView
+
+@property (nonatomic, strong) GTNextPageIndicatorView *nextPageIndicatorView;
+
+@end
+
+@implementation GTNextPageCollectionReusableView
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+    }
+    
+    return self;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    
+    return self;
+}
+
+- (void)setup {
+    self.nextPageIndicatorView = [[GTNextPageIndicatorView alloc] init];
+    self.nextPageIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:self.nextPageIndicatorView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_nextPageIndicatorView);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_nextPageIndicatorView]|" options:0 metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_nextPageIndicatorView]|" options:0 metrics:nil views:views]];
+}
+
+@end
 
 @interface GTPagingCollectionViewController ()
 
@@ -26,6 +71,8 @@
 }
 
 - (void)viewDidLoad {
+    [self.collectionView registerClass:[GTNextPageCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"GTNextPageCollectionReusableView"];
+    
     [super viewDidLoad];
     
 }
@@ -107,7 +154,7 @@
 
 
 #pragma mark refresh
-- (void)reload {
+- (void)refresh {
     [self reloadData];
 }
 
@@ -129,7 +176,21 @@
 }
 
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    GTNextPageCollectionReusableView *nextPageView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"GTNextPageCollectionReusableView" forIndexPath:indexPath];
+    self.nextPageIndicatorView = nextPageView.nextPageIndicatorView;
+    
+    return nextPageView;
+}
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if (self.hasNextPage) {
+        return CGSizeMake(GTDeviceWidth, 44);
+    } else {
+        return CGSizeMake(GTDeviceWidth, 0);
+    }
+    
+}
 
 
 #pragma mark scroll view delegate
@@ -137,7 +198,6 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
     if (scrollView.contentOffset.y + scrollView.frame.size.height  >= scrollView.contentSize.height && self.isLoading == NO && self.hasNextPage) {
-        //        GTNextPageIndicatorView *loadNextPageLabel = (GTNextPageIndicatorView *)self.tableView.tableFooterView;
         self.nextPageIndicatorView.text = @"正在加载";
         
         [self.nextPageIndicatorView.indicatorView startAnimating];

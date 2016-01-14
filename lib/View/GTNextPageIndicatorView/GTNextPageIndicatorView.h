@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GTNextPageIndicatorView : UILabel
+@interface GTNextPageIndicatorView : UIView
+
+- (void)setText:(NSString *)text;
 
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
 
