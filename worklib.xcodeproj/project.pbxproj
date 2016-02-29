@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B99F6291C842FBD00215150 /* worklib.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6B99F6281C842FBD00215150 /* worklib.podspec */; };
+		6B99F62B1C84395A00215150 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6B99F62A1C84395A00215150 /* LICENSE */; };
 		6BFE36BD1B8CA5620052C7F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE36BC1B8CA5620052C7F7 /* main.m */; };
 		6BFE36C01B8CA5620052C7F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE36BF1B8CA5620052C7F7 /* AppDelegate.m */; };
 		6BFE36C91B8CA5630052C7F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BFE36C71B8CA5630052C7F7 /* Main.storyboard */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B99F6281C842FBD00215150 /* worklib.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = worklib.podspec; sourceTree = "<group>"; };
+		6B99F62A1C84395A00215150 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		6BFE36B71B8CA5620052C7F7 /* worklib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = worklib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFE36BB1B8CA5620052C7F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BFE36BC1B8CA5620052C7F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 		6BFE36AE1B8CA5620052C7F7 = {
 			isa = PBXGroup;
 			children = (
+				6B99F62A1C84395A00215150 /* LICENSE */,
+				6B99F6281C842FBD00215150 /* worklib.podspec */,
 				6BFE36B91B8CA5620052C7F7 /* worklib */,
 				6BFE36D61B8CA5630052C7F7 /* worklibTests */,
 				6BFE36B81B8CA5620052C7F7 /* Products */,
@@ -557,8 +563,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BFE36C91B8CA5630052C7F7 /* Main.storyboard in Resources */,
+				6B99F6291C842FBD00215150 /* worklib.podspec in Resources */,
 				6BFE36CE1B8CA5630052C7F7 /* LaunchScreen.xib in Resources */,
 				6BFE36CB1B8CA5630052C7F7 /* Images.xcassets in Resources */,
+				6B99F62B1C84395A00215150 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
