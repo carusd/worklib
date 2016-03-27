@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "worklib"
-s.version          = "2.3"
+s.version          = "2.3.1"
 s.summary          = "reusable component made by carusd. contain a bunch of tool"
 
 # This description is used to generate tags and improve search results.
