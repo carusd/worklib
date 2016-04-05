@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B4236DE1CB38D0400004346 /* GTAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B4236DD1CB38D0400004346 /* GTAlbumsViewController.m */; };
+		6B4236E21CB38D1800004346 /* GTAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B4236E01CB38D1800004346 /* GTAlbumCell.m */; };
+		6B4236E31CB38D1800004346 /* GTAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B4236E11CB38D1800004346 /* GTAlbumCell.xib */; };
 		6B99F6291C842FBD00215150 /* worklib.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6B99F6281C842FBD00215150 /* worklib.podspec */; };
 		6B99F62B1C84395A00215150 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 6B99F62A1C84395A00215150 /* LICENSE */; };
+		6BA7309B1CAE7EEC00C5534D /* GTPickImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7309A1CAE7EEC00C5534D /* GTPickImageViewController.m */; };
+		6BA7309F1CAE7F7F00C5534D /* GTPickImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7309D1CAE7F7F00C5534D /* GTPickImageCell.m */; };
+		6BA730A01CAE7F7F00C5534D /* GTPickImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA7309E1CAE7F7F00C5534D /* GTPickImageCell.xib */; };
 		6BFE36BD1B8CA5620052C7F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE36BC1B8CA5620052C7F7 /* main.m */; };
 		6BFE36C01B8CA5620052C7F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFE36BF1B8CA5620052C7F7 /* AppDelegate.m */; };
 		6BFE36C91B8CA5630052C7F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BFE36C71B8CA5630052C7F7 /* Main.storyboard */; };
@@ -60,8 +66,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B4236DC1CB38D0400004346 /* GTAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAlbumsViewController.h; sourceTree = "<group>"; };
+		6B4236DD1CB38D0400004346 /* GTAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAlbumsViewController.m; sourceTree = "<group>"; };
+		6B4236DF1CB38D1800004346 /* GTAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAlbumCell.h; sourceTree = "<group>"; };
+		6B4236E01CB38D1800004346 /* GTAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAlbumCell.m; sourceTree = "<group>"; };
+		6B4236E11CB38D1800004346 /* GTAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTAlbumCell.xib; sourceTree = "<group>"; };
 		6B99F6281C842FBD00215150 /* worklib.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = worklib.podspec; sourceTree = "<group>"; };
 		6B99F62A1C84395A00215150 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6BA730991CAE7EEC00C5534D /* GTPickImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPickImageViewController.h; sourceTree = "<group>"; };
+		6BA7309A1CAE7EEC00C5534D /* GTPickImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPickImageViewController.m; sourceTree = "<group>"; };
+		6BA7309C1CAE7F7F00C5534D /* GTPickImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPickImageCell.h; sourceTree = "<group>"; };
+		6BA7309D1CAE7F7F00C5534D /* GTPickImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPickImageCell.m; sourceTree = "<group>"; };
+		6BA7309E1CAE7F7F00C5534D /* GTPickImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTPickImageCell.xib; sourceTree = "<group>"; };
 		6BFE36B71B8CA5620052C7F7 /* worklib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = worklib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFE36BB1B8CA5620052C7F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BFE36BC1B8CA5620052C7F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -252,6 +268,16 @@
 				6BFE376A1B8CB5B90052C7F7 /* GTViewController.m */,
 				6BFE376B1B8CB5B90052C7F7 /* GTWebviewController.h */,
 				6BFE376C1B8CB5B90052C7F7 /* GTWebviewController.m */,
+				6B4236DC1CB38D0400004346 /* GTAlbumsViewController.h */,
+				6B4236DD1CB38D0400004346 /* GTAlbumsViewController.m */,
+				6B4236DF1CB38D1800004346 /* GTAlbumCell.h */,
+				6B4236E01CB38D1800004346 /* GTAlbumCell.m */,
+				6B4236E11CB38D1800004346 /* GTAlbumCell.xib */,
+				6BA730991CAE7EEC00C5534D /* GTPickImageViewController.h */,
+				6BA7309A1CAE7EEC00C5534D /* GTPickImageViewController.m */,
+				6BA7309C1CAE7F7F00C5534D /* GTPickImageCell.h */,
+				6BA7309D1CAE7F7F00C5534D /* GTPickImageCell.m */,
+				6BA7309E1CAE7F7F00C5534D /* GTPickImageCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -536,7 +562,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B4236E31CB38D1800004346 /* GTAlbumCell.xib in Resources */,
 				6BFE36C91B8CA5630052C7F7 /* Main.storyboard in Resources */,
+				6BA730A01CAE7F7F00C5534D /* GTPickImageCell.xib in Resources */,
 				6B99F6291C842FBD00215150 /* worklib.podspec in Resources */,
 				6BFE36CE1B8CA5630052C7F7 /* LaunchScreen.xib in Resources */,
 				6BFE36CB1B8CA5630052C7F7 /* Images.xcassets in Resources */,
@@ -561,6 +589,7 @@
 				6BFE37CA1B8CB5B90052C7F7 /* UIImage+load.m in Sources */,
 				6BFE37C51B8CB5B90052C7F7 /* NSString+uriencode.m in Sources */,
 				6BFE37BB1B8CB5B90052C7F7 /* GTConsoleViewController.m in Sources */,
+				6BA7309B1CAE7EEC00C5534D /* GTPickImageViewController.m in Sources */,
 				6BFE37C61B8CB5B90052C7F7 /* UIButton+ui.m in Sources */,
 				6BFE37BA1B8CB5B90052C7F7 /* GTWebviewController.m in Sources */,
 				6BFE37C91B8CB5B90052C7F7 /* UIImage+effect.m in Sources */,
@@ -581,15 +610,18 @@
 				6BFE36BD1B8CA5620052C7F7 /* main.m in Sources */,
 				6BFE37D91B8E01110052C7F7 /* GTPullToRefreshView.m in Sources */,
 				6BFE37C81B8CB5B90052C7F7 /* UIImage+crop.m in Sources */,
+				6B4236DE1CB38D0400004346 /* GTAlbumsViewController.m in Sources */,
 				6BFE37B91B8CB5B90052C7F7 /* GTViewController.m in Sources */,
 				6BFE37BF1B8CB5B90052C7F7 /* NSDate+format.m in Sources */,
 				6BFE37CE1B8CB5B90052C7F7 /* GTLoadingView.m in Sources */,
 				6BFE37B61B8CB5B90052C7F7 /* GTPagingTableViewController.m in Sources */,
 				6BFE37C21B8CB5B90052C7F7 /* NSString+db.m in Sources */,
+				6B4236E21CB38D1800004346 /* GTAlbumCell.m in Sources */,
 				6BFE37D11B8CB5B90052C7F7 /* GTPageView.m in Sources */,
 				6BFE37D01B8CB5B90052C7F7 /* GTNextPageIndicatorView.m in Sources */,
 				6BFE37CB1B8CB5B90052C7F7 /* UIImageView+load.m in Sources */,
 				6BFE37C41B8CB5B90052C7F7 /* NSString+timestamp.m in Sources */,
+				6BA7309F1CAE7F7F00C5534D /* GTPickImageCell.m in Sources */,
 				6BFE37C71B8CB5B90052C7F7 /* UIColor+Text.m in Sources */,
 				6BFE37B41B8CB5B90052C7F7 /* GTNavigationController.m in Sources */,
 			);
