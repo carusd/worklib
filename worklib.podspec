@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "worklib"
-s.version          = "2.3.1"
+s.version          = "2.3.2"
 s.summary          = "reusable component made by carusd. contain a bunch of tool"
 
 s.description      = <<-DESC

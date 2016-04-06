@@ -32,7 +32,10 @@
     self.navigationItem.rightBarButtonItems = @[rightBarBtn];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    [self.tableView registerNib:[UINib nibWithNibName:@"GTAlbumCell" bundle:[NSBundle bundleForClass:[GTAlbumsViewController class]]] forCellReuseIdentifier:@"GTAlbumCell"];
+    NSBundle *worklibBundle = [NSBundle bundleForClass:[GTAlbumsViewController class]];
+    NSLog(@"all bundles %@", [NSBundle allBundles]);
+    NSLog(@"worklib bundle %@", worklibBundle);
+    [self.tableView registerNib:[UINib nibWithNibName:@"GTAlbumCell" bundle:worklibBundle] forCellReuseIdentifier:@"GTAlbumCell"];
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
