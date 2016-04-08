@@ -10,6 +10,8 @@
 
 @implementation GTAlbumCell
 
-
+- (void)awakeFromNib {
+    self.thumbImageView.layer.masksToBounds = YES;
+}
 
 @end

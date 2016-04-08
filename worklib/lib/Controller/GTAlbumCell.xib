@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -14,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BSs-Rk-Lcq">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BSs-Rk-Lcq">
                         <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="BSs-Rk-Lcq" secondAttribute="height" id="Gvw-cD-kaI"/>
@@ -48,6 +49,7 @@
                 <outlet property="imageCount" destination="uLm-s1-Kwp" id="pUO-gj-USN"/>
                 <outlet property="thumbImageView" destination="BSs-Rk-Lcq" id="cer-8W-nJf"/>
             </connections>
+            <point key="canvasLocation" x="243" y="357"/>
         </tableViewCell>
     </objects>
 </document>

@@ -58,7 +58,6 @@
         [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     }
     
-    
     //处理启动参数
     if (launchOptions){
         //处理推送打开的参数
