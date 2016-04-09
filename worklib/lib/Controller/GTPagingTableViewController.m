@@ -96,6 +96,7 @@
     } else {
         self.tableView.tableFooterView = self.customTableFooterView;
     }
+    self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusNormal;
     
     self.isLoading = NO;
     [self hide];
@@ -139,8 +140,8 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
     if (scrollView.contentOffset.y + scrollView.frame.size.height  >= scrollView.contentSize.height && self.isLoading == NO && self.hasNextPage) {
-        self.nextPageIndicatorView.text = @"正在加载";
         
+        self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusLoading;
         [self.nextPageIndicatorView.indicatorView startAnimating];
         [self loadDataWithPage:self.pageNo+1];
     }

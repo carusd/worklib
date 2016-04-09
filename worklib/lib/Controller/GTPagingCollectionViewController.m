@@ -100,7 +100,7 @@
     self.pageSize = [self.datas[@"pageSize"] integerValue];
     
     [self.collectionView reloadData];
-    
+    self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusNormal;
     
     self.isLoading = NO;
     [self hide];
@@ -170,7 +170,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     GTNextPageCollectionReusableView *nextPageView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"GTNextPageCollectionReusableView" forIndexPath:indexPath];
     self.nextPageIndicatorView = nextPageView.nextPageIndicatorView;
-    self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusNormal;
+    
     
     return nextPageView;
 }
