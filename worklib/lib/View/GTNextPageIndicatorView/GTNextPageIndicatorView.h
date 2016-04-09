@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    GTNextPageIndicatorViewStatusNormal,
+    GTNextPageIndicatorViewStatusLoading
+} GTNextPageIndicatorViewStatus;
+
 @interface GTNextPageIndicatorView : UIView
 
-- (void)setText:(NSString *)text;
-
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
+
+@property (nonatomic, copy) NSString *normalText;
+@property (nonatomic, copy) NSString *loadingText;
+
+@property (nonatomic) GTNextPageIndicatorViewStatus status;
 
 @end

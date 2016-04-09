@@ -10,6 +10,8 @@
 #import "GTConsoleViewController.h"
 #import "GTDebugViewController.h"
 #import "GTLoadingView.h"
+#import "UIControl+RACSignalSupport.h"
+#import "RACSignal.h"
 
 @interface UIViewController ()
 
@@ -38,6 +40,43 @@
 - (void)openConsoleController {
     GTConsoleViewController *console = [[GTConsoleViewController alloc] init];
     [self presentViewController:console animated:YES completion:nil];
+}
+
+
+#pragma mark top bar
+- (void)setBackBtnWithImg:(UIImage *)image {
+    UIButton *back = [UIButton buttonWithType:UIButtonTypeCustom];
+    back.frame = CGRectMake(0, 0, 44, 44);
+    
+    [back setImage:image forState:UIControlStateNormal];
+    [[back rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    [self setLeftBarView:back];
+    
+}
+
+- (void)setLeftBarView:(UIView *)leftBarView {
+    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:leftBarView];
+    
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                               target:nil action:nil];
+    spacer.width = -11;
+    
+    self.navigationItem.rightBarButtonItems = @[spacer, leftBarButton];
+}
+
+- (void)setRightBarView:(UIView *)rightBarView {
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightBarView];
+    
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                               target:nil action:nil];
+    spacer.width = -11;
+    
+    self.navigationItem.rightBarButtonItems = @[rightBarButton, spacer];
 }
 
 #pragma mark loading

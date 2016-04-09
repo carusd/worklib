@@ -22,9 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) NSDictionary *datas;
 
-@property (nonatomic, strong) NSArray *constraints4TableView;
 
-@property (nonatomic, readonly) NSLayoutConstraint *top4Refresh;
 
 - (BOOL)hasNextPage;
 - (void)loadDataWithPage:(NSInteger)index;
