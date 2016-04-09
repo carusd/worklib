@@ -7,6 +7,7 @@
 //
 
 #import "GTDebugViewController.h"
+#import "GTMaskView.h"
 
 @interface GTDebugViewController ()
 
@@ -60,20 +61,7 @@
 - (void)testing {
 }
 
-- (UIView *)subviewToMaskView:(GTMaskView *)maskView {
-    return [UIView new];
-}
 
-- (void)didTapMaskView:(GTMaskView *)maskView {
-    [self.maskView dismiss];
-}
-
-- (void)testCollectionMenu {
-    self.maskView = [[GTMaskView alloc] init];
-    self.maskView.delegate = self;
-    
-    [self.maskView show];
-}
 
 - (void)testMainQueue {
 

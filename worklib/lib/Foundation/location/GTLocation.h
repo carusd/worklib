@@ -6,12 +6,10 @@
 //  Copyright (c) 2015年 GuitarGG. All rights reserved.
 //
 
-
-extern NSString * const GTLocationResultNotif;
-
-
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+
+extern NSString * const GTLocationResultNotif;
 
 @interface GTLocation : NSObject <CLLocationManagerDelegate>
 

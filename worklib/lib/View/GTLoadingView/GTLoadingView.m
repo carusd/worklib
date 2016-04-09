@@ -7,8 +7,8 @@
 //
 
 #import "GTLoadingView.h"
-#import "GTViewController.h"
-
+#import "UIViewController+common.h"
+#import "GTConstants.h"
 @interface GTLoadingView ()
 
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
@@ -49,7 +49,7 @@ GTLoadingView *_loadingView;
 
 + (void)show {
     if (![GTLoadingView instance].superview) {
-        [[GTViewController window] addSubview:[GTLoadingView instance]];
+        [[UIViewController window] addSubview:[GTLoadingView instance]];
         [[GTLoadingView instance].indicatorView startAnimating];
     }
 }

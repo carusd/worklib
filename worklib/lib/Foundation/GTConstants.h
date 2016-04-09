@@ -14,6 +14,8 @@
 #define GTDeviceWidth ([[UIScreen mainScreen] bounds].size.width)
 #define GTDeviceHeight ([UIScreen mainScreen].bounds.size.height)
 
+#define GTCenterAtWindow (CGPointMake(GTDeviceWidth / 2, GTDeviceHeight / 2))
+
 #define GTIOSVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
 
 #endif

@@ -7,6 +7,7 @@
 //
 
 #import "GTPagingCollectionViewController.h"
+#import "GTConstants.h"
 
 @interface GTNextPageCollectionReusableView : UICollectionReusableView
 
@@ -82,7 +83,7 @@
 }
 
 #pragma mark load data
-- (void)handleLoadedData:(NSDictionary *)dic dataSourceType:(GTPagingDataSourceType)dataSourceType {
+- (void)handleLoadedData:(NSDictionary *)dic {
     NSMutableDictionary *mutableDatas = [NSMutableDictionary dictionaryWithDictionary:dic];
     
     NSArray *data = mutableDatas[@"data"];
@@ -128,9 +129,6 @@
     
 }
 
-- (void)handleLoadedData:(NSDictionary *)dic {
-    [self handleLoadedData:dic dataSourceType:GTPagingDataSourceTypeNetwork];
-}
 
 - (BOOL)hasNextPage {
     if (self.pageSize <= 0) {

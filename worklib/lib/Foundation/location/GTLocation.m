@@ -7,7 +7,7 @@
 //
 
 #import "GTLocation.h"
-
+#import <UIKit/UIKit.h>
 
 NSString * const GTLocationResultNotif = @"GTLocationResultNotif";
 

@@ -7,7 +7,8 @@
 //
 
 #import "GTMaskView.h"
-#import "GTViewController.h"
+#import "GTConstants.h"
+#import "UIViewController+common.h"
 
 @implementation GTMaskView
 
@@ -51,7 +52,7 @@
         UIView *subview = [self.delegate subviewToMaskView:self];
         [self addSubview:subview];
         
-        [[GTViewController window] addSubview:self];
+        [[UIViewController window] addSubview:self];
         
     }
     [UIView animateWithDuration:0.35 animations:^{

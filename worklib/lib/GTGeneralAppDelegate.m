@@ -7,6 +7,8 @@
 //
 
 #import "GTGeneralAppDelegate.h"
+#import "GTConstants.h"
+#import "NSDate+format.h"
 
 @implementation GTGeneralAppDelegate
 
