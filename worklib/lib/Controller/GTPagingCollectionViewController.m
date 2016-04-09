@@ -101,13 +101,6 @@
     
     [self.collectionView reloadData];
     
-    if (self.hasNextPage) {
-        GTNextPageIndicatorView *indicator = self.nextPageIndicatorView;
-        [indicator.indicatorView stopAnimating];
-//        self.collectionView.tableFooterView = indicator;
-    } else {
-//        self.collectionView.tableFooterView = self.customTableFooterView;
-    }
     
     self.isLoading = NO;
     [self hide];
@@ -177,6 +170,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     GTNextPageCollectionReusableView *nextPageView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"GTNextPageCollectionReusableView" forIndexPath:indexPath];
     self.nextPageIndicatorView = nextPageView.nextPageIndicatorView;
+    self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusNormal;
     
     return nextPageView;
 }
@@ -196,7 +190,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
     if (scrollView.contentOffset.y + scrollView.frame.size.height  >= scrollView.contentSize.height && self.isLoading == NO && self.hasNextPage) {
-        self.nextPageIndicatorView.text = @"正在加载";
+        self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusLoading;
         
         [self.nextPageIndicatorView.indicatorView startAnimating];
         [self loadDataWithPage:self.pageNo+1];
