@@ -10,6 +10,7 @@
 
 @interface GTWebviewController : UIViewController<UIWebViewDelegate>
 
+@property (nonatomic, strong) UIWebView *webview;
 
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, copy) NSString *titleText;

@@ -10,7 +10,7 @@
 #import "UIViewController+common.h"
 
 @interface GTWebviewController ()
-@property (nonatomic, strong) UIWebView *webview;
+
 @end
 
 @implementation GTWebviewController
