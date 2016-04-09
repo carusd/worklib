@@ -6,13 +6,12 @@
 //  Copyright (c) 2014年 GuitarGG. All rights reserved.
 //
 
-#import "GTViewController.h"
+#import <UIKit/UIKit.h>
 #import "GTNextPageIndicatorView.h"
-#import "GTPullToRefreshView.h"
 
 
 
-@interface GTPagingTableViewController : GTViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GTPagingTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -22,7 +21,6 @@
 @property (nonatomic) BOOL isLoading;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) NSDictionary *datas;
-@property (nonatomic) GTPagingDataSourceType pagingDataSourceType;
 
 @property (nonatomic, strong) NSArray *constraints4TableView;
 

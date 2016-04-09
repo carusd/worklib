@@ -7,15 +7,11 @@
 //
 
 #import "GTGeneralAppDelegate.h"
-#import "NSDate+format.h"
-#import "GTConstants.h"
 
 @implementation GTGeneralAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    [self.window makeKeyAndVisible];
     
     // 4m for memory , 20m for disk
     NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
@@ -31,42 +27,12 @@
     
     //启用推送
     if (GTIOSVersion >= 8) {
-#warning fixme 下个版本再做详细的
-//        UIMutableUserNotificationAction *action = [[UIMutableUserNotificationAction alloc] init];
-//        action.identifier = @"action";//按钮的标示
-//        action.title=@"Accept";//按钮的标题
-//        action.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
-//        //    action.authenticationRequired = YES;
-//        //    action.destructive = YES;
-//        
-//        UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];
-//        action2.identifier = @"action2";
-//        action2.title=@"Reject";
-//        action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
-//        action.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
-//        action.destructive = YES;
-//        
-//        //2.创建动作(按钮)的类别集合
-//        UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc] init];
-//        categorys.identifier = @"alert";//这组动作的唯一标示,推送通知的时候也是根据这个来区分
-//        [categorys setActions:@[action,action2] forContext:(UIUserNotificationActionContextMinimal)];
-        
-        //3.创建UIUserNotificationSettings，并设置消息的显示类类型
         UIUserNotificationSettings *notiSettings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIRemoteNotificationTypeSound) categories:nil];
         [application registerUserNotificationSettings:notiSettings];
     } else {
         [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     }
     
-    //处理启动参数
-    if (launchOptions){
-        //处理推送打开的参数
-        NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-        if (userInfo) {
-            [self pushNotificationOpen:userInfo];
-        }
-        
-    }
     
     return YES;
 }
@@ -102,17 +68,6 @@
     
 }
 
-- (void)pushNotificationOpen:(NSDictionary *)userInfo
-{
-    NSString *open = [userInfo objectForKey:@"open"];
-    if (open) {
-        [self remotePushNotifactionOpen:open];
-    }
-    NSString *update = [userInfo objectForKey:@"update"];
-    if (update) {
-        [self remotePushNotifactionUpdate:update];
-    }
-}
 
 #pragma mark -
 #pragma mark 子类需要重写的方法
@@ -131,11 +86,6 @@
     
 }
 
-//子类必须实现，处理逻辑
-- (void) remotePushNotifactionOpen:(NSString *) open
-{
-    
-}
 
 //如有特殊需求子类可重载
 - (void) remotePushNotifactionUpdate:(NSString *) updateUrl

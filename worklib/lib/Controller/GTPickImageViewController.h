@@ -6,8 +6,13 @@
 //  Copyright © 2016年 carusd. All rights reserved.
 //
 
-#import "GTViewController.h"
+#import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
-@interface GTPickImageViewController : GTViewController
+@interface GTPickImageViewController : UIViewController
+
+@property (nonatomic, strong) ALAssetsGroup *assetsGroup;
+@property (nonatomic, strong) PHAssetCollection *assetCollection;
 
 @end

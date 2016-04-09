@@ -7,52 +7,47 @@
 //
 
 #import "GTWebviewController.h"
+#import "UIViewController+common.h"
 
 @interface GTWebviewController ()
-
+@property (nonatomic, strong) UIWebView *webview;
 @end
 
 @implementation GTWebviewController
 
-- (id)initWithExt:(NSDictionary *)ext {
-    self = [super init];
-    if (self) {
-        _ext = ext;
-    }
-    
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    if (GTIOSVersion >= 7) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     
-    self.webview = [[UIWebView alloc] initWithFrame:CGRectMake(0, GTNavigationBarHeight(), GTDeviceWidth, GTDeviceHeight - GTNavigationBarHeight())];
+    self.webview = [[UIWebView alloc] initWithFrame:CGRectZero];
     self.webview.translatesAutoresizingMaskIntoConstraints = NO;
     self.webview.delegate = self;
     [self.view addSubview:self.webview];
     
     [self.view sendSubviewToBack:self.webview];
     
+    
     NSDictionary *views = NSDictionaryOfVariableBindings(_webview);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webview]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webview]|" options:0 metrics:nil views:views]];
     
+    [self setupLoadingView];
     
-    if (_ext) {
-        NSString *url = _ext[@"url"];
-        
-        self.navigationItem.title = _ext[@"title"];
-        
-        [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
-    }
+    self.navigationItem.title = self.titleText;
+    
+    [self showLoading];
+    [self.webview loadRequest:[NSURLRequest requestWithURL:self.url]];
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self hideLoading];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self hideLoading];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

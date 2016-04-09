@@ -7,6 +7,7 @@
 //
 
 #import "GTConsoleViewController.h"
+#import "GTConstants.h"
 
 @interface GTConsoleViewController ()
 @property (nonatomic, strong) UITextView *textView;

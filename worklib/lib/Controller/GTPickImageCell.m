@@ -11,7 +11,7 @@
 @implementation GTPickImageCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.imagePreview.layer.masksToBounds = YES;
 }
 
 @end

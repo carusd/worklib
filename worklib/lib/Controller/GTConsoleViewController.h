@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 GuitarGG. All rights reserved.
 //
 
-#import "GTViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface GTConsoleViewController : GTViewController
+@interface GTConsoleViewController : UIViewController
 
 + (void)startup;
 

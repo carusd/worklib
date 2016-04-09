@@ -11,6 +11,8 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 #import "GTPickImageViewController.h"
+#import "UIViewController+common.h"
+#import "GTConstants.h"
 
 @interface GTAlbumInfo : NSObject
 
@@ -18,6 +20,8 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic) NSInteger imageCount;
 
+@property (nonatomic, strong) ALAssetsGroup *assetsGroup;
+@property (nonatomic, strong) PHAssetCollection *assetCollection;
 
 @end
 
@@ -33,7 +37,6 @@
 @property (nonatomic, strong) NSMutableArray *albums;
 
 @property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
-@property (nonatomic) dispatch_group_t fetchingGroup;
 @end
 
 @implementation GTAlbumsViewController
@@ -65,6 +68,7 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_tableView]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_tableView]|" options:0 metrics:nil views:views]];
     
+    [self setupLoadingView];
     
     [self loadAlbums];
 }
@@ -127,7 +131,7 @@
                     GTAlbumInfo *albumInfo = [GTAlbumInfo new];
                     albumInfo.imageCount = assetResult.count;
                     albumInfo.title = collection.localizedTitle;
-                    
+                    albumInfo.assetCollection = collection;
                     PHAsset *posterAsset = [assetResult objectAtIndex:0];
                     PHImageRequestOptions *options = [PHImageRequestOptions new];
                     options.synchronous = YES;
@@ -149,7 +153,7 @@
                     GTAlbumInfo *albumInfo = [GTAlbumInfo new];
                     albumInfo.imageCount = assetResult.count;
                     albumInfo.title = collection.localizedTitle;
-                    
+                    albumInfo.assetCollection = collection;
                     PHAsset *posterAsset = [assetResult objectAtIndex:0];
                     PHImageRequestOptions *options = [PHImageRequestOptions new];
                     options.synchronous = YES;
@@ -171,7 +175,7 @@
                     GTAlbumInfo *albumInfo = [GTAlbumInfo new];
                     albumInfo.imageCount = assetResult.count;
                     albumInfo.title = collection.localizedTitle;
-                    
+                    albumInfo.assetCollection = collection;
                     PHAsset *posterAsset = [assetResult objectAtIndex:0];
                     PHImageRequestOptions *options = [PHImageRequestOptions new];
                     options.synchronous = YES;
@@ -193,7 +197,7 @@
                     GTAlbumInfo *albumInfo = [GTAlbumInfo new];
                     albumInfo.imageCount = assetResult.count;
                     albumInfo.title = collection.localizedTitle;
-                    
+                    albumInfo.assetCollection = collection;
                     PHAsset *posterAsset = [assetResult objectAtIndex:0];
                     PHImageRequestOptions *options = [PHImageRequestOptions new];
                     options.synchronous = YES;
@@ -215,7 +219,7 @@
                     GTAlbumInfo *albumInfo = [GTAlbumInfo new];
                     albumInfo.imageCount = assetResult.count;
                     albumInfo.title = collection.localizedTitle;
-                    
+                    albumInfo.assetCollection = collection;
                     PHAsset *posterAsset = [assetResult objectAtIndex:0];
                     PHImageRequestOptions *options = [PHImageRequestOptions new];
                     options.synchronous = YES;
@@ -239,7 +243,7 @@
                         GTAlbumInfo *albumInfo = [GTAlbumInfo new];
                         albumInfo.imageCount = assetResult.count;
                         albumInfo.title = collection.localizedTitle;
-                        
+                        albumInfo.assetCollection = collection;
                         PHAsset *posterAsset = [assetResult objectAtIndex:0];
                         PHImageRequestOptions *options = [PHImageRequestOptions new];
                         options.synchronous = YES;
@@ -261,7 +265,7 @@
                         GTAlbumInfo *albumInfo = [GTAlbumInfo new];
                         albumInfo.imageCount = assetResult.count;
                         albumInfo.title = collection.localizedTitle;
-                        
+                        albumInfo.assetCollection = collection;
                         PHAsset *posterAsset = [assetResult objectAtIndex:0];
                         PHImageRequestOptions *options = [PHImageRequestOptions new];
                         options.synchronous = YES;
@@ -286,7 +290,7 @@
                     GTAlbumInfo *albumInfo = [GTAlbumInfo new];
                     albumInfo.imageCount = assetResult.count;
                     albumInfo.title = collection.localizedTitle;
-                    
+                    albumInfo.assetCollection = collection;
                     PHAsset *posterAsset = [assetResult objectAtIndex:0];
                     PHImageRequestOptions *options = [PHImageRequestOptions new];
                     options.synchronous = YES;
@@ -317,6 +321,7 @@
                 albumInfo.title = [assetsGroup valueForProperty:ALAssetsGroupPropertyName];
                 albumInfo.imageCount = assetsGroup.numberOfAssets;
                 albumInfo.posterImage = [UIImage imageWithCGImage:assetsGroup.posterImage];
+                albumInfo.assetsGroup = assetsGroup;
                 [wSelf.albums insertObject:albumInfo atIndex:0];
             }
             
@@ -349,7 +354,14 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    GTAlbumInfo *info = self.albums[indexPath.row];
+    
     GTPickImageViewController *pickImage = [[GTPickImageViewController alloc] init];
+    if (GTIOSVersion >= 8) {
+        pickImage.assetCollection = info.assetCollection;
+    } else {
+        pickImage.assetsGroup = info.assetsGroup;
+    }
     [self.navigationController pushViewController:pickImage animated:YES];
 }
 

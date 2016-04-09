@@ -10,29 +10,13 @@
 
 @interface GTPagingTableViewController ()
 
-//@property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) GTNextPageIndicatorView *nextPageIndicatorView;
 
-@property (nonatomic, strong) NSLayoutConstraint *top4Refresh;
 
 @end
 
 @implementation GTPagingTableViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
-- (id)init {
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
 
 - (void)dealloc {
     self.tableView.dataSource = nil;
@@ -46,10 +30,6 @@
     self.nextPageIndicatorView = [[GTNextPageIndicatorView alloc] init];
     
     self.tableView.backgroundColor = [UIColor clearColor];
-    
-    if (GTIOSVersion >= 7) {
-        self.tableView.separatorInset = UIEdgeInsetsZero;
-    }
     
     
 }
@@ -92,14 +72,6 @@
 }
 
 - (void)handleLoadedData:(NSDictionary *)dic {
-    [self handleLoadedData:dic dataSourceType:GTPagingDataSourceTypeNetwork];
-}
-
-- (UIView *)customTableFooterView {
-    return nil;
-}
-
-- (void)handleLoadedData:(NSDictionary *)dic dataSourceType:(GTPagingDataSourceType)dataSourceType {
     NSMutableDictionary *mutableDatas = [NSMutableDictionary dictionaryWithDictionary:dic];
     
     NSArray *data = mutableDatas[@"data"];
@@ -127,19 +99,30 @@
     
     self.isLoading = NO;
     [self hide];
-    
 }
 
-//- (GTNextPageIndicatorView *)nextPageIndicatorView {
-//    if (!self.tableView.tableFooterView) {
-//        return [[GTNextPageIndicatorView alloc] init];
-//    }
-//    return (GTNextPageIndicatorView *)self.tableView.tableFooterView;
-//}
+- (UIView *)customTableFooterView {
+    return [UIView new];
+}
 
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = [UIColor clearColor];
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -156,7 +139,6 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
     if (scrollView.contentOffset.y + scrollView.frame.size.height  >= scrollView.contentSize.height && self.isLoading == NO && self.hasNextPage) {
-//        GTNextPageIndicatorView *loadNextPageLabel = (GTNextPageIndicatorView *)self.tableView.tableFooterView;
         self.nextPageIndicatorView.text = @"正在加载";
         
         [self.nextPageIndicatorView.indicatorView startAnimating];

@@ -6,8 +6,8 @@
 //  Copyright © 2016年 carusd. All rights reserved.
 //
 
-#import "GTViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface GTAlbumsViewController : GTViewController
+@interface GTAlbumsViewController : UIViewController
 
 @end

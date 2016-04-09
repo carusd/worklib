@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 GuitarGG. All rights reserved.
 //
 
-#import "GTViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface GTScrollViewController : GTViewController {
+@interface GTScrollViewController : UIViewController {
     UIScrollView *_scrollView;
 }
 

@@ -34,8 +34,6 @@
         self.interactivePopGestureRecognizer.delegate = weakSelf;
     }
     
-    
-    
 }
 
 
@@ -68,41 +66,5 @@
     }
 }
 
-#pragma mark rotation
-//ios6
-- (BOOL)shouldAutorotate {
-    return NO;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationPortrait;
-}
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-//ios4 and ios5
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 @end
 
-
-@implementation UIScrollView (AllowPanGestureEventPass)
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]
-        && [otherGestureRecognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]])
-    {
-        return YES;
-    }
-    else
-    {
-        return  NO;
-    }
-}
-
-@end

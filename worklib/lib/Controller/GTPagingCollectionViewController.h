@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 GuitarGG. All rights reserved.
 //
 
-#import "GTViewController.h"
+#import <UIKit/UIKit.h>
 #import "GTNextPageIndicatorView.h"
 
-@interface GTPagingCollectionViewController : GTViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface GTPagingCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 
 @property (nonatomic) NSInteger pageNo;

@@ -34,9 +34,7 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    if (GTIOSVersion >= 7) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.scrollView];
 }
@@ -48,17 +46,17 @@
 }
 
 - (void)scrollToIndex:(NSInteger)index {
-    [self.scrollView setContentOffset:CGPointMake(GTView_W(self.scrollView) * index, 0) animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(CGRectGetWidth(self.scrollView.frame) * index, 0) animated:YES];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.currentMenuIndex = scrollView.contentOffset.x / GTView_W(self.scrollView);
+    self.currentMenuIndex = scrollView.contentOffset.x / CGRectGetWidth(self.scrollView.frame);
     
     [self currentMenuIndexDidChange];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    self.currentMenuIndex = scrollView.contentOffset.x / GTView_W(self.scrollView);
+    self.currentMenuIndex = scrollView.contentOffset.x / CGRectGetWidth(self.scrollView.frame);
     
     [self currentMenuIndexDidChange];
 }

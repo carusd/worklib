@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 GuitarGG. All rights reserved.
 //
 
-#import "GTViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface GTWebviewController : GTViewController<UIWebViewDelegate>
+@interface GTWebviewController : UIViewController<UIWebViewDelegate>
 
-@property (nonatomic, strong) UIWebView *webview;
 
-- (id)initWithExt:(NSDictionary *)ext;
+@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, copy) NSString *titleText;
 
 
 @end
