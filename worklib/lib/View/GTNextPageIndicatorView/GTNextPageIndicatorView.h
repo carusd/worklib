@@ -15,6 +15,8 @@ typedef enum : NSUInteger {
 
 @interface GTNextPageIndicatorView : UIView
 
+- (id)initWithNormalText:(NSString *)normalText loadingText:(NSString *)loadingText;
+
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
 
 @property (nonatomic, copy) NSString *normalText;
