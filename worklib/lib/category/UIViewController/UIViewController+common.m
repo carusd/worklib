@@ -20,7 +20,7 @@
 @end
 
 @implementation UIViewController (common)
-
+@dynamic loadingView;
 
 - (BOOL)isRootViewController {
     return (self.navigationController.viewControllers.firstObject == self);

@@ -10,9 +10,6 @@
 #import "GTLoadingView.h"
 
 @interface UIViewController (common)
-
-
-
 - (BOOL)isRootViewController;
 
 + (UIWindow *)window;
