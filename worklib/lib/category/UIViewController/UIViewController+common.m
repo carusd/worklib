@@ -12,6 +12,9 @@
 #import "GTLoadingView.h"
 #import "UIControl+RACSignalSupport.h"
 #import "RACSignal.h"
+#import <objc/runtime.h>
+
+NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
 
 @interface UIViewController ()
 
@@ -21,6 +24,14 @@
 
 @implementation UIViewController (common)
 @dynamic loadingView;
+
+- (void)setLoadingView:(GTLoadingView *)loadingView {
+    objc_setAssociatedObject(self, (__bridge const void *)loadingViewPropertyKey, loadingView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (GTLoadingView *)loadingView {
+    return objc_getAssociatedObject(self, (__bridge const void *)(loadingViewPropertyKey));
+}
 
 - (BOOL)isRootViewController {
     return (self.navigationController.viewControllers.firstObject == self);
