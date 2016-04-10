@@ -7,7 +7,7 @@
 //
 
 #import "GTNextPageIndicatorView.h"
-#import "UIColor+Text.h"
+#import "GTMacros.h"
 #import "GTConstants.h"
 
 @interface GTNextPageIndicatorView ()
@@ -28,13 +28,25 @@
     return self;
 }
 
+- (id)initWithNormalText:(NSString *)normalText loadingText:(NSString *)loadingText {
+    self = [super init];
+    if (self) {
+        self.normalText = normalText;
+        self.loadingText = loadingText;
+        
+        [self setup];
+    }
+    
+    return self;
+}
+
 - (void)setup {
     self.frame = CGRectMake(0, 0, GTDeviceWidth, 44);
     
     self.textLabel = [[UILabel alloc] init];
     self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.textLabel.backgroundColor = [UIColor clearColor];
-    self.textLabel.textColor = [UIColor gtBlackColor];
+    self.textLabel.textColor = GTColor(51, 51, 51, 1);
     self.textLabel.text = self.normalText;
     
     [self addSubview:self.textLabel];

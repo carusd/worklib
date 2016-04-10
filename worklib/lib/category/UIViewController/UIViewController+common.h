@@ -14,7 +14,6 @@
 
 + (UIWindow *)window;
 
-
 // debug
 - (void)openDebugViewController;
 - (void)openConsoleController;
