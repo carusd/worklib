@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GTLoadingView.h"
 
 @interface UIViewController (common)
+
+
 
 - (BOOL)isRootViewController;
 
@@ -23,6 +26,8 @@
 - (void)setRightBarView:(UIView *)rightBarView;
 
 // loading
+@property (nonatomic, strong) GTLoadingView *loadingView;
+
 - (void)setupLoadingView;
 - (void)showLoading;
 - (void)hideLoading;

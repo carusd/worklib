@@ -15,7 +15,7 @@
 
 @interface UIViewController ()
 
-@property (nonatomic, strong) GTLoadingView *loadingView;
+
 
 @end
 
