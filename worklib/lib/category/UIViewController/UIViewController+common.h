@@ -15,9 +15,13 @@
 + (UIWindow *)window;
 
 
-#pragma mark debug
+// debug
 - (void)openDebugViewController;
 - (void)openConsoleController;
+
+- (void)setBackBtnWithImg:(UIImage *)image;
+- (void)setLeftBarView:(UIView *)leftBarView;
+- (void)setRightBarView:(UIView *)rightBarView;
 
 // loading
 - (void)setupLoadingView;
