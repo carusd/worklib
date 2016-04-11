@@ -76,7 +76,7 @@ NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
                                target:nil action:nil];
     spacer.width = -11;
     
-    self.navigationItem.rightBarButtonItems = @[spacer, leftBarButton];
+    self.navigationItem.leftBarButtonItems = @[spacer, leftBarButton];
 }
 
 - (void)setRightBarView:(UIView *)rightBarView {
