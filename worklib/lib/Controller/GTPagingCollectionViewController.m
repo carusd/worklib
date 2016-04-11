@@ -144,19 +144,8 @@
 }
 
 
-#pragma mark refresh
-- (void)refresh {
-    [self reloadData];
-}
 
-- (void)hide {
-    [UIView animateWithDuration:.2 animations:^{
-        
-        self.collectionView.contentInset = UIEdgeInsetsZero;
-    }];
-    
-}
-
+#pragma mark collection view
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
@@ -189,11 +178,24 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
-    if (scrollView.contentOffset.y + scrollView.frame.size.height  >= scrollView.contentSize.height && self.isLoading == NO && self.hasNextPage) {
+    if (scrollView.contentOffset.y + scrollView.frame.size.height + 20 >= scrollView.contentSize.height && self.isLoading == NO && self.hasNextPage) {
         self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusLoading;
         
         [self.nextPageIndicatorView.indicatorView startAnimating];
         [self loadDataWithPage:self.pageNo+1];
     }
+}
+
+#pragma mark refresh
+- (void)refresh {
+    [self reloadData];
+}
+
+- (void)hide {
+    [UIView animateWithDuration:.2 animations:^{
+        
+        self.collectionView.contentInset = UIEdgeInsetsZero;
+    }];
+    
 }
 @end

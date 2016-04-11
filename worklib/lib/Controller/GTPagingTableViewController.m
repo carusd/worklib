@@ -139,7 +139,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
-    if (scrollView.contentOffset.y + scrollView.frame.size.height  >= scrollView.contentSize.height && self.isLoading == NO && self.hasNextPage) {
+    if (scrollView.contentOffset.y + scrollView.frame.size.height + 20 >= scrollView.contentSize.height && self.isLoading == NO && self.hasNextPage) {
         
         self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusLoading;
         [self.nextPageIndicatorView.indicatorView startAnimating];
