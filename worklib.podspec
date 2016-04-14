@@ -16,4 +16,6 @@ s.requires_arc = true
 s.resources = ['worklib/lib/Controller/*.{xib}']
 s.source_files = 'worklib/lib/**/*.{h,m,mm}'
 
+s.dependency  'ReactiveCocoa', '2.5'
+
 end
