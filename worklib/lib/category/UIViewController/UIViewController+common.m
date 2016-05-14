@@ -11,8 +11,8 @@
 #import "GTDebugViewController.h"
 #import "GTLoadingView.h"
 //#import <ReactiveCocoa/UIControl+RACSignalSupport.h>
-#import "UIControl+RACSignalSupport.h"
-#import "RACSignal.h"
+//#import "UIControl+RACSignalSupport.h"
+//#import "RACSignal.h"
 #import <objc/runtime.h>
 
 NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
@@ -61,12 +61,13 @@ NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
     back.frame = CGRectMake(0, 0, 44, 44);
     
     [back setImage:image forState:UIControlStateNormal];
-    [[back rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
     
     [self setLeftBarView:back];
     
+}
+
+- (void)back {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)setLeftBarView:(UIView *)leftBarView {
