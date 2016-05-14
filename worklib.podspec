@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "worklib"
-s.version          = "2.3.2"
+s.version          = "3.0.1"
 s.summary          = "reusable component made by carusd. contain a bunch of tool"
 
 s.description      = <<-DESC
@@ -16,6 +16,5 @@ s.requires_arc = true
 s.resources = ['worklib/lib/Controller/*.{xib}']
 s.source_files = 'worklib/lib/**/*.{h,m,mm}'
 
-s.dependency  'ReactiveCocoa', '2.5'
 
 end
