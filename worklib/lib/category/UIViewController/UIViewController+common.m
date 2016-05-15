@@ -61,7 +61,7 @@ NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
     back.frame = CGRectMake(0, 0, 44, 44);
     
     [back setImage:image forState:UIControlStateNormal];
-    
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self setLeftBarView:back];
     
 }
