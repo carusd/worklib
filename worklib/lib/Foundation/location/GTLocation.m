@@ -40,6 +40,7 @@ NSString * const GTLocationResultNotif = @"GTLocationResultNotif";
     _longitude = 113.388953;
     _latitude = 23.133900;
     
+    _province = @"广东省";
     _city = @"广州市";
     
     [[NSNotificationCenter defaultCenter] postNotificationName:GTLocationResultNotif object:nil];
@@ -60,10 +61,19 @@ NSString * const GTLocationResultNotif = @"GTLocationResultNotif";
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location"       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"抱歉" message:@"无法获取您的位置信息，您可以在【设置】-【隐私】-【定位服务】中开启定位服务" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }];
+    [alertController addAction:cancelAction];
+    
+    UIAlertAction *toSetting = [UIAlertAction actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [[UIApplication sharedApplication] openURL:UIApplicationOpenSettingsURLString];
+    }];
+    [alertController addAction:toSetting];
+    
+    UIViewController *rootViewController = [[[UIApplication sharedApplication] windows].firstObject rootViewController];
+    [rootViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -78,6 +88,9 @@ NSString * const GTLocationResultNotif = @"GTLocationResultNotif";
                        for (CLPlacemark *placemark in placemarks) {
                            NSString *city = [placemark locality];
                            NSLog(@"current city %@", city);
+                           NSLog(@"administrativeArea %@", placemark.administrativeArea);
+                           NSLog(@"subAdministrativeArea %@", placemark.subAdministrativeArea);
+                           self.province = placemark.administrativeArea;
                            self.city = city;
                            
                            _longitude = lastLocation.coordinate.longitude;

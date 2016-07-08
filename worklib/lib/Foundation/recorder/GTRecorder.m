@@ -89,6 +89,10 @@ NSString * const GTRecorderDoneNotificationUserInfoKey = @"GTRecorderDoneNotific
     [_audioRecorder pause];
 }
 
+- (void)resumeRecording {
+    [_audioRecorder record];
+}
+
 - (BOOL)recording {
     return _audioRecorder.recording;
 }

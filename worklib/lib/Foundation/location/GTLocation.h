@@ -25,6 +25,7 @@ extern NSString * const GTLocationResultNotif;
 @property (nonatomic, readonly) double longitude;
 @property (nonatomic, readonly) double latitude;
 
+@property (nonatomic, copy) NSString *province;
 @property (nonatomic, copy) NSString *city;
 
 @property (nonatomic, readonly) BOOL ready;

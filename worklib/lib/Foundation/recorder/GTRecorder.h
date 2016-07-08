@@ -25,6 +25,7 @@ typedef void(^GTRecordFailure)(void);
 - (void)startRecording;
 - (void)stopRecording;
 - (void)pauseRecording;
+- (void)resumeRecording;
 - (BOOL)recording;
 
 - (NSURL *)audioURL;

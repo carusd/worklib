@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GTNextPageIndicatorView.h"
-
+#import "UIViewController+common.h"
 
 
 @interface GTPagingTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
@@ -26,6 +26,7 @@
 
 - (BOOL)hasNextPage;
 - (void)loadDataWithPage:(NSInteger)index;
+- (void)loadDataWithPage:(NSInteger)index forceRefresh:(BOOL)refresh;
 - (void)handleLoadedData:(NSDictionary *)data;
 - (void)handleLoadedError:(NSError *)e;
 - (void)refresh;

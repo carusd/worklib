@@ -14,11 +14,15 @@
 
 + (UIWindow *)window;
 
+@property (nonatomic) BOOL forceRefresh;
+
 // debug
 - (void)openDebugViewController;
 - (void)openConsoleController;
 
 - (void)setBackBtnWithImg:(UIImage *)image;
+- (void)setBarBackBtnWithImg:(UIImage *)image;
+
 - (void)setLeftBarView:(UIView *)leftBarView;
 - (void)setRightBarView:(UIView *)rightBarView;
 
@@ -29,4 +33,9 @@
 - (void)showLoading;
 - (void)hideLoading;
 
+
+
+@property (nonatomic, readonly) UIView *emptyDataIndicatorContainer;
+- (void)setupEmptyDataIndicator:(UIView *)view customLayout:(BOOL)custom;
+- (void)didTapEmptyDataIndicator;
 @end

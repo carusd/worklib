@@ -46,8 +46,10 @@
     self.textLabel = [[UILabel alloc] init];
     self.textLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.textLabel.backgroundColor = [UIColor clearColor];
-    self.textLabel.textColor = GTColor(51, 51, 51, 1);
+//    self.textLabel.textColor = GTColor(51, 51, 51, 1);
+    self.textLabel.textColor = [UIColor darkGrayColor];
     self.textLabel.text = self.normalText;
+    self.textLabel.font = [UIFont boldSystemFontOfSize:14];
     
     [self addSubview:self.textLabel];
     

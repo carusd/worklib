@@ -103,6 +103,8 @@
     self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusNormal;
     
     self.isLoading = NO;
+    self.forceRefresh = NO;
+    self.error = nil;
     [self hide];
 }
 
@@ -110,8 +112,12 @@
     self.isLoading = YES;
 }
 
+- (void)loadDataWithPage:(NSInteger)index forceRefresh:(BOOL)refresh {
+    self.isLoading = YES;
+}
+
 - (void)reloadData {
-    
+    self.forceRefresh = YES;
     self.datas = nil;
     self.dataArray = nil;
     self.isLoading = YES;
@@ -119,6 +125,7 @@
 }
 
 - (void)handleLoadedError:(NSError *)e {
+    self.error = e;
     
 }
 
@@ -147,14 +154,23 @@
 
 #pragma mark collection view
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    if (self.error) {
+        return 1;
+    } else {
+        return self.dataArray.count;
+    }
+    
 }
-
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
 
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(GTDeviceWidth, GTDeviceHeight + 10);
+}
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     GTNextPageCollectionReusableView *nextPageView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"GTNextPageCollectionReusableView" forIndexPath:indexPath];

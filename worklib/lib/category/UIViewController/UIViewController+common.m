@@ -10,16 +10,12 @@
 #import "GTConsoleViewController.h"
 #import "GTDebugViewController.h"
 #import "GTLoadingView.h"
-//#import <ReactiveCocoa/UIControl+RACSignalSupport.h>
-//#import "UIControl+RACSignalSupport.h"
-//#import "RACSignal.h"
 #import <objc/runtime.h>
 
-NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
 
 @interface UIViewController ()
 
-
+@property (nonatomic, strong) UIView *emptyDataIndicatorContainer;
 
 @end
 
@@ -27,11 +23,66 @@ NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
 @dynamic loadingView;
 
 - (void)setLoadingView:(GTLoadingView *)loadingView {
-    objc_setAssociatedObject(self, (__bridge const void *)loadingViewPropertyKey, loadingView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, (__bridge const void *)@"loadingView", loadingView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (GTLoadingView *)loadingView {
-    return objc_getAssociatedObject(self, (__bridge const void *)(loadingViewPropertyKey));
+    return objc_getAssociatedObject(self, (__bridge const void *)(@"loadingView"));
+}
+
+- (void)setForceRefresh:(BOOL)forceRefresh {
+    objc_setAssociatedObject(self, (__bridge const void *)@"forceRefresh", @(forceRefresh), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)forceRefresh {
+    return objc_getAssociatedObject(self, (__bridge const void *)(@"forceRefresh"));
+}
+
+- (void)setEmptyDataIndicatorContainer:(UIView *)container {
+    objc_setAssociatedObject(self, (__bridge const void *)@"emptyDataIndicatorContainer", container, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIView *)emptyDataIndicatorContainer {
+    return objc_getAssociatedObject(self, (__bridge const void *)(@"emptyDataIndicatorContainer"));
+}
+
+
+- (void)setupEmptyDataIndicator:(UIView *)view customLayout:(BOOL)custom{
+    assert(view);
+    
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.emptyDataIndicatorContainer = [UIView new];
+    self.emptyDataIndicatorContainer.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.emptyDataIndicatorContainer];
+    
+    UIView *container = self.emptyDataIndicatorContainer;
+    NSDictionary *views = NSDictionaryOfVariableBindings(container, view);
+    
+    if (!custom) {
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[container]|" options:0 metrics:nil views:views]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[container]|" options:0 metrics:nil views:views]];
+    }
+    
+    
+    [container addSubview:view];
+    
+    [container addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:views]];
+    [container addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:views]];
+    
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapEmptyDataIndicator:)];
+    [self.emptyDataIndicatorContainer addGestureRecognizer:tap];
+    
+    self.emptyDataIndicatorContainer.hidden = YES;
+}
+
+- (void)didTapEmptyDataIndicator {
+    
+}
+
+- (void)handleTapEmptyDataIndicator:(UITapGestureRecognizer *)tap {
+    [self didTapEmptyDataIndicator];
 }
 
 - (BOOL)isRootViewController {
@@ -41,6 +92,8 @@ NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
 + (UIWindow *)window {
     return [UIApplication sharedApplication].windows[0];
 }
+
+
 
 
 #pragma mark debug
@@ -58,12 +111,22 @@ NSString * const loadingViewPropertyKey = @"loadingViewPropertyKey";
 #pragma mark top bar
 - (void)setBackBtnWithImg:(UIImage *)image {
     UIButton *back = [UIButton buttonWithType:UIButtonTypeCustom];
+    back.frame = CGRectMake(20, 20, 44, 44);
+    
+    [back setImage:image forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:back];
+    
+}
+
+- (void)setBarBackBtnWithImg:(UIImage *)image {
+    UIButton *back = [UIButton buttonWithType:UIButtonTypeCustom];
     back.frame = CGRectMake(0, 0, 44, 44);
     
     [back setImage:image forState:UIControlStateNormal];
     [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self setLeftBarView:back];
-    
 }
 
 - (void)back {

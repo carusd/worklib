@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GTNextPageIndicatorView.h"
+#import "UIViewController+common.h"
 
 @interface GTPagingCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -20,13 +21,14 @@
 @property (nonatomic, strong) NSDictionary *datas;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-
+@property (nonatomic, strong) NSError *error;
 @property (nonatomic, strong) NSArray *constraints4TableView;
 
 
 
 - (BOOL)hasNextPage;
 - (void)loadDataWithPage:(NSInteger)index;
+- (void)loadDataWithPage:(NSInteger)index forceRefresh:(BOOL)refresh;
 - (void)handleLoadedData:(NSDictionary *)data;
 - (void)handleLoadedError:(NSError *)e;
 - (void)refresh;

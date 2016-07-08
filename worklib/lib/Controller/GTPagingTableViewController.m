@@ -59,8 +59,12 @@
     self.isLoading = YES;
 }
 
+- (void)loadDataWithPage:(NSInteger)index forceRefresh:(BOOL)refresh {
+    self.isLoading = YES;
+}
+
 - (void)reloadData {
-    
+    self.forceRefresh = YES;
     self.datas = nil;
     self.dataArray = nil;
     self.isLoading = YES;
@@ -99,6 +103,7 @@
     self.nextPageIndicatorView.status = GTNextPageIndicatorViewStatusNormal;
     
     self.isLoading = NO;
+    self.forceRefresh = NO;
     [self hide];
 }
 
@@ -149,6 +154,7 @@
 
 #pragma mark refresh
 - (void)refresh {
+    
     [self reloadData];
 }
 

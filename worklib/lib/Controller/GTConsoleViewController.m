@@ -33,8 +33,15 @@ NSMutableString *logInfo = nil;
     self.textView.backgroundColor = [UIColor blackColor];
     self.textView.textColor = [UIColor greenColor];
     self.textView.editable = NO;
+    self.textView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.view addSubview:self.textView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_textView);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_textView]|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_textView]|" options:0 metrics:nil views:views]];
+    
+    
     
     UISwipeGestureRecognizer *closeMe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(closeMe)];
     closeMe.direction = UISwipeGestureRecognizerDirectionLeft;
